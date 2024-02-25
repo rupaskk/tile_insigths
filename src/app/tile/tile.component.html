@@ -1,0 +1,17 @@
+<div class="container mt-2 shadow-lg p-3 mb-5 bg-body rounded main">
+  <div class="tiles-container">
+    <div *ngFor="let tile of tiles" (click)="onTileClick(tile)" [class.expanded]="tile === selectedTile">
+      <img [src]="tile.thumbprint" [style.width.px]="tileSize" [style.height.px]="tileSize" />
+    </div>
+  </div>
+  
+  <div *ngIf="selectedTile" class="selected-tiles-container">
+    <div class="selected-tile">
+        <img [src]="selectedTile.thumbprint" [style.width.px]="expandedTileSize" [style.height.px]="expandedTileSize" />
+        <h2>{{ selectedTile.title }}</h2>
+        <p class="tile-detail">{{ selectedTile.details }}</p>
+    </div>
+  </div>
+
+</div>
+
